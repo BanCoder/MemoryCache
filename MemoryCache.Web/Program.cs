@@ -19,13 +19,14 @@ builder.Services.AddMemoryCache();
 //	options.Configuration = "localhost:6379";
 //	options.InstanceName = "ProductApp_"; 
 //});
+var connectionString = "Server=dpg-d8lc9028qa3s73a1lavg-a.oregon-postgres.render.com;Port=5432;Database=cachedb_y461;User Id=cachedb_y461_user;Password=0enjGJ8NoSl0SvlSiRw0CLPccgZBNoh9;SSL Mode=Require;Trust Server Certificate=true;";
+
 var config = new ConfigurationBuilder()
 	.AddInMemoryCollection(new Dictionary<string, string?>
 	{
-		["ConnectionStrings:DefaultConnection"] = "Host=dpg-d8lc9028qa3s73a1lavg-a.oregon-postgres.render.com;Port=5432;Database=cachedb_y461;Username=cachedb_y461_user;Password=0enjGJ8NoSl0SvlSiRw0CLPccgZBNoh9;SSL Mode=Require;Trust Server Certificate=true"
+		["ConnectionStrings:DefaultConnection"] = connectionString
 	})
 	.Build();
-
 builder.Services.AddDataAccess(config);
 builder.Services.AddBusinessLogic();
 builder.Services.AddControllers();
