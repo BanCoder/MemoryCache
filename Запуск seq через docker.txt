@@ -1,0 +1,2 @@
+docker rm seq -f
+docker run -d --name seq -p 5341:80 -e ACCEPT_EULA=Y -e SEQ_FIRSTRUN_ADMINPASSWORD=Ban_4555 datalust/seq
